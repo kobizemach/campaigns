@@ -1,0 +1,100 @@
+<div class='top_title'><h3 class='main_title'><span *ngIf="!this.edit_mode">+ Create</span><span *ngIf="this.edit_mode">Edit</span> Campaign</h3></div>
+<div class='create_container'>
+    <mat-horizontal-stepper labelPosition="bottom" linear #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+          <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Targeting</ng-template>
+            <div class='form-group group1'>
+                <label class='form_label' for="name">Campaign Name</label>
+                <div class="input-group">
+                    <input id="name" type="text" class="form-control" formControlName="nameCtrl" name="name" [(ngModel)]="name" required>
+                </div>
+                <!-- <div *ngIf="firstFormGroup.get('nameCtrl').touched" class="alert alert-danger"> -->
+                    <!-- <div *ngIf="name.errors.required"> -->
+                        <!-- Name is required. -->
+                    <!-- </div> -->                  
+                <!-- </div> -->
+                <label class='form_label' for="budget">Daily Budget</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><b>$</b></span>
+                    <input id="budget" type="number" [(ngModel)]="daily_budget" formControlName="dailyBudgetCtrl" class="form-control" name="budget" required>
+                </div>
+                <label class='form_label' for="bid">Bid (Maximum CPC)</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><b>$</b></span>
+                    <input id="bid" type="number" class="form-control" [(ngModel)]="bid" formControlName="bidCtrl" name="bid" required>
+                </div>
+                <label class='form_label' for="bid">Start Date</label>
+                <div class="input-group date">
+                    <input class="form-control" name="start_date" [(ngModel)]="start_date" formControlName="startDateCtrl" (ngModelChange)='changeDateFilter("start",this.start_date)' ngbDatepicker #s_d="ngbDatepicker" required>
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar" (click)="s_d.toggle()"></span>
+                    </div>             
+                </div>
+                <label class='form_label' for="bid">End Date</label>
+                <div class="input-group date">
+                    <input class="form-control" name="end_date" [(ngModel)]="end_date" formControlName="endDateCtrl" (ngModelChange)='changeDateFilter("end",this.end_date)' ngbDatepicker #e_d="ngbDatepicker" required>
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar" (click)="e_d.toggle()"></span>
+                    </div>             
+                </div>              
+            </div>
+            <div class='step_nav_row'>
+                <button mat-raised-button matStepperNext class='blue_btn next_btn'><i class="fa fa-arrow-right"></i></button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Segment</ng-template>
+                <div class='form-group group1'>
+                    <label class='form_label' for="bid">Devices</label>
+                    <div class="input-group">
+                        <ng-select 
+                                formControlName="secondCtrl" 
+                                [items]="items"
+                                bindLabel="name"
+                                placeholder="Select item"
+                                appendTo="body"
+                                multiple="true"
+                                [(ngModel)]="devices"
+                                name="devices">
+                        </ng-select>         
+                    </div>              
+                </div>
+                <div class='step_nav_row'>
+                    <button matStepperPrevious mat-flat-button class=''><i class="fa fa-arrow-left"></i></button>
+                    <button mat-raised-button matStepperNext class='blue_btn next_btn'><i class="fa fa-arrow-right"></i></button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Summery</ng-template>
+            <div class='group2'>
+                <div class='new_camp_title'>
+                    <h1>{{this.name}}</h1>                         
+                </div>
+                <hr /> 
+                <div class='camp_details'>
+                    <label class='block camp_details_label'>Daily Budget: <span class='normal_w'>{{this.daily_budget}}</span></label>
+                    <label class='block camp_details_label'>Bid: <span class='normal_w'>{{this.daily_budget}}</span></label> 
+                    <label class='block camp_details_label'>Start Date: <span class='normal_w'>{{this.start_date_display}}</span></label> 
+                    <label class='block camp_details_label'>End Date: <span class='normal_w'>{{this.end_date_display}}</span></label>                          
+                </div>
+                <div>
+                    <label class='block camp_details_label'>Devices: <span class='normal_w' *ngFor="let device of devices; let i = index"><span *ngIf="i > 0">, </span>{{device.name}}</span></label> 
+                </div>
+            </div>
+            <div class='step_nav_row'>
+                <button matStepperPrevious mat-flat-button class=''><i class="fa fa-arrow-left"></i></button>
+                <button *ngIf="this.edit_mode == false; else editMode" class='btn btn-success right' (click)="createNewCampain()">Submit</button>
+                <ng-template #editMode>
+                    <button class='btn btn-success right' (click)="updateCampaign()">Update</button>
+                </ng-template>
+            </div>
+        </mat-step>
+    </mat-horizontal-stepper>
+</div>
+
+
+  

@@ -1,0 +1,55 @@
+$th: #797575;
+$light_blue: #519cda;
+$table_row: #f9f9f9;
+
+.create_container{
+    width: 90%;
+    border: 1px solid #ded7d7;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.campaigns_table{
+    width: 100%;
+    background-color: #fff;
+}
+.campaigns_table{
+    tr{
+        border: 14px solid #fff;
+    }
+    th{
+        color: $th;
+        padding-left: 20px;
+    }
+    td{
+        padding-left: 20px;
+        color: $th;
+    }
+}
+.light_blue{
+    color: $light_blue !important;
+}
+.table_row{
+    height: 70px;
+    background-color: $table_row !important;
+}
+.head_row{
+    height: 50px;
+}
+.top_title{
+    width: 90%;
+    margin: 0 auto;
+}
+.edit_btn{
+    color: $light_blue !important;
+    cursor: pointer;
+}
+.small_th{
+    width: 60px;
+}
+.center{
+    text-align: center;
+}
+.main_title{
+    color: $light_blue;
+}

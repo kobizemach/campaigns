@@ -1,0 +1,135 @@
+$light_blue: #5097d6;
+$step_down: #97c3e7;
+$inner_gray: #f7f7f7;
+$label: #928d8d;
+
+::ng-deep .mat-horizontal-stepper-header {
+    box-sizing: border-box;
+    flex-direction: column-reverse !important;
+    height: auto;
+    padding: 24px;
+}
+::ng-deep .mat-horizontal-stepper-header .mat-step-label {
+    padding: 0px 0px 16px !important;
+}
+::ng-deep .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:first-child)::before, ::ng-deep .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:last-child)::after{
+    top: 70px !important;
+    border-top-width: 2px !important;
+    border-top-style: dashed !important;
+    border-top-color: #5097d6 !important;
+}
+::ng-deep .mat-stepper-label-position-bottom .mat-stepper-horizontal-line {
+    top: 70px !important;
+}
+::ng-deep .mat-stepper-horizontal-line {
+    border-top-width: 2px !important;
+    border-top-style: dashed !important;
+    border-top-color: #5097d6 !important;
+}
+::ng-deep .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:first-child)::before, [dir=rtl] .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:last-child)::before {
+    left: 4px !important;
+}
+::ng-deep .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:last-child)::after, [dir=rtl] .mat-stepper-label-position-bottom .mat-horizontal-stepper-header:not(:first-child)::after {
+    right: 4px !important;
+}
+::ng-deep .mat-horizontal-stepper-header-container {
+    background-color: $inner_gray !important;
+    padding: 10px 90px;
+}
+::ng-deep .mat-step-icon-state-number{
+    background-color: $step_down !important;
+    border: 2px solid #b0d7f7;
+}
+::ng-deep .mat-step-header .mat-step-icon-selected, .mat-step-header .mat-step-icon-state-done, .mat-step-header .mat-step-icon-state-edit {
+    background-color: $light_blue !important;
+    border: 2px solid $step_down;
+}
+::ng-deep .mat-step-icon-state-done, ::ng-deep .mat-step-icon-state-edit{
+    background-color: $light_blue !important;
+    border: 2px solid $step_down;
+}
+::ng-deep .mat-horizontal-content-container {
+    padding: 0 !important;
+}
+.group1{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top: 5px;
+    min-height: 400px;
+}
+.group2{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top: 5px;
+    min-height: 250px;
+}
+.top_title{
+    width: 90%;
+    margin: 0 auto;
+}
+.create_container{
+    width: 90%;
+    border: 1px solid #ded7d7;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.create_container{
+    .input-group{
+        width: 100% !important;
+    }
+}
+.main_title{
+    color: $light_blue;
+}
+.form_label{
+    display: block;
+    color: $label;
+    font-size: 11px;
+    margin-top: 12px;
+    letter-spacing: 0.4px;
+}
+#name{
+    border-radius: 4px;
+}
+.blue_btn{
+    background-color: #337cf6;
+    color: #fff;
+    padding: 0px 50px;
+}
+.next_btn{
+    float: right;
+}
+.step_nav_row{
+    background-color: $inner_gray !important;
+    padding: 20px 30px;
+    height: 77px;
+}
+.fa-arrow-right{
+    margin-top: -2px;
+}
+.new_camp_title{
+    margin-bottom: 22px;
+}
+.camp_details{
+    margin-top: 38px;
+    margin-bottom: 38px;
+}
+.normal_w{
+    font-weight: normal;
+}
+.block{
+    display: block;
+}
+.camp_details_label{
+    color: $label;
+}
+.right{
+    float: right;
+}
+
+

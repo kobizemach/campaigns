@@ -1,0 +1,13 @@
+<div class='login_con'>
+    <div class='login_div'>
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+            <div class="row" *ngIf="authError">
+                <div class='col-12 alert alert-danger'>{{authError?.message}}</div>
+            </div>
+            <h2 class='center'><b>Login</b></h2>
+            <input ngModel #email="ngModel" name='email' type="email" id='email' placeholder="Email">
+            <input ngModel #password="ngModel" name='password' type='password' id='password' placeholder="Password">
+            <button type='submit' class='submit'>Submit</button>
+        </form>
+    </div>
+</div>

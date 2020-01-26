@@ -1,0 +1,25 @@
+<div class='top_title'><h3 class='main_title'>Campaigns</h3></div>
+<div class='create_container'>
+    <table class='campaigns_table'>
+        <tr class='head_row'>
+            <th>campaign Name</th>
+            <th>Start Date</th>
+            <th>Devices</th>
+            <th>End Date</th>
+            <th>Budget</th>
+            <th>Bid</th>
+            <th class='small_th'>Edit</th>
+            <th class='small_th'>Delete</th>
+        </tr>
+        <tr *ngFor="let item of campaigns" class='table_row'>
+            <td class='light_blue'>{{item.name}}</td>
+            <td>{{item.start_date.day}}.{{item.start_date.month}}.{{item.start_date.year}}</td>
+            <td>{{item.devices}}</td>
+            <td>{{item.end_date.day}}.{{item.end_date.month}}.{{item.end_date.year}}</td>
+            <td>{{item.budget}}</td>
+            <td>{{item.bid}}</td>
+            <td class='center'><a routerLink="/main/create-campaign/{{item.id}}"><i class="edit_btn fa fa-edit"></i></a></td>
+            <td class='center'><i (click)="delCamp(item.id)" class="edit_btn fa fa-trash"></i></td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,44 @@
+$main-dark-blue: #39425f;
+$main-dark-blue-hov: #464e68;
+
+.login_div{
+    padding: 10px 50px 40px 50px;
+    border: 1px solid #c5c0c0;
+    box-shadow: 1px 1px 7px 1px #aaaaaa;
+    border-radius: 4px;
+    background-color: #ecebe9;
+    min-width: 515px;
+}
+.login_con{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -252px;
+    margin-top: -100px;
+}
+.login_con{
+    input{
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 5px;
+        width: 270px;
+        border-radius: 4px;
+        padding: 5px;
+    }
+    button{
+        display: block;
+        width: 270px;
+        margin: 0 auto;
+        background-color: $main-dark-blue;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 5px;
+    }
+    button:hover{
+        background-color: $main-dark-blue-hov;
+    }
+}
+.center{
+    text-align: center;
+}

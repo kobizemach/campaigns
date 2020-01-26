@@ -1,0 +1,10 @@
+<div class='col-lg-2 col-md-2 main_menu'>
+  <nav>
+    <a routerLink="/main/create-campaign/1" class='menu_link'><b><h4>+ Create Campaign</h4></b></a>
+    <a routerLink="/main/campaigns" class='menu_link'><b><h4>Campaigns</h4></b></a>
+    <a routerLink="/" (click)="logout()" class="logout"><h5>Logout</h5></a>
+  </nav>
+</div>
+<div class='col-lg-10 col-md-10 desk'>
+    <router-outlet></router-outlet>
+</div>

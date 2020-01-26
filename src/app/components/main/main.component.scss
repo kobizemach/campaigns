@@ -1,0 +1,23 @@
+$light_blue: #5097d6;
+$white: #fff;
+$main_back: #f1f1f1;
+.main_menu{
+    background-color: #39425f;
+    height: 100%;
+    padding: 30px 30px;
+}
+.main_menu a{
+    color: $white;
+    text-decoration: none;
+}
+.main_menu a:hover{
+    color:$light_blue;
+}
+.logout{
+    position: absolute;
+    bottom: 290px;
+}
+.desk{
+    background-color: $main_back;
+    height: 100%;
+}
