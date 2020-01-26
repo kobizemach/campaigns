@@ -7,23 +7,21 @@
             <div class='form-group group1'>
                 <label class='form_label' for="name">Campaign Name</label>
                 <div class="input-group">
-                    <input id="name" type="text" class="form-control" formControlName="nameCtrl" name="name" [(ngModel)]="name" required>
+                    <input id="name" type="text" class="form-control" formControlName="nameCtrl" [(ngModel)]="name" required>
                 </div>
-                <!-- <div *ngIf="firstFormGroup.get('nameCtrl').touched" class="alert alert-danger"> -->
-                    <!-- <div *ngIf="name.errors.required"> -->
-                        <!-- Name is required. -->
-                    <!-- </div> -->                  
-                <!-- </div> -->
+                <div *ngIf="firstFormGroup.get('nameCtrl').touched && firstFormGroup.get('nameCtrl').invalid" class="alert alert-danger">Name is required.</div>
                 <label class='form_label' for="budget">Daily Budget</label>
                 <div class="input-group">
                     <span class="input-group-addon"><b>$</b></span>
                     <input id="budget" type="number" [(ngModel)]="daily_budget" formControlName="dailyBudgetCtrl" class="form-control" name="budget" required>
                 </div>
+                <div *ngIf="firstFormGroup.get('dailyBudgetCtrl').touched && firstFormGroup.get('dailyBudgetCtrl').invalid" class="alert alert-danger">Budget is required.</div>
                 <label class='form_label' for="bid">Bid (Maximum CPC)</label>
                 <div class="input-group">
                     <span class="input-group-addon"><b>$</b></span>
                     <input id="bid" type="number" class="form-control" [(ngModel)]="bid" formControlName="bidCtrl" name="bid" required>
                 </div>
+                <div *ngIf="firstFormGroup.get('bidCtrl').touched && firstFormGroup.get('bidCtrl').invalid" class="alert alert-danger">Bid is required and can not be higher then 10% from the daily budget.</div>
                 <label class='form_label' for="bid">Start Date</label>
                 <div class="input-group date">
                     <input class="form-control" name="start_date" [(ngModel)]="start_date" formControlName="startDateCtrl" (ngModelChange)='changeDateFilter("start",this.start_date)' ngbDatepicker #s_d="ngbDatepicker" required>
@@ -31,13 +29,15 @@
                         <span class="glyphicon glyphicon-calendar" (click)="s_d.toggle()"></span>
                     </div>             
                 </div>
+                <div *ngIf="firstFormGroup.get('startDateCtrl').touched && firstFormGroup.get('startDateCtrl').invalid" class="alert alert-danger">Start Date is required.</div>
                 <label class='form_label' for="bid">End Date</label>
                 <div class="input-group date">
                     <input class="form-control" name="end_date" [(ngModel)]="end_date" formControlName="endDateCtrl" (ngModelChange)='changeDateFilter("end",this.end_date)' ngbDatepicker #e_d="ngbDatepicker" required>
                     <div class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar" (click)="e_d.toggle()"></span>
                     </div>             
-                </div>              
+                </div>   
+                <div *ngIf="firstFormGroup.get('endDateCtrl').touched && firstFormGroup.get('endDateCtrl').invalid" class="alert alert-danger">End Date is required.</div>           
             </div>
             <div class='step_nav_row'>
                 <button mat-raised-button matStepperNext class='blue_btn next_btn'><i class="fa fa-arrow-right"></i></button>
@@ -60,7 +60,8 @@
                                 [(ngModel)]="devices"
                                 name="devices">
                         </ng-select>         
-                    </div>              
+                    </div> 
+                    <div *ngIf="secondFormGroup.get('secondCtrl').touched && secondFormGroup.get('secondCtrl').invalid" class="alert alert-danger">Devices is required.</div>             
                 </div>
                 <div class='step_nav_row'>
                     <button matStepperPrevious mat-flat-button class=''><i class="fa fa-arrow-left"></i></button>
